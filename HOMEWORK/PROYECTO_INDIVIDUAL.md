@@ -61,3 +61,34 @@ Nota: Este paso se omite en la simulación ya que estamos dentro de un repositor
 
 #### Resultado obtenido:
 ![Captura de pantalla de verificación](/RESOURCES/creation.png)
+
+## EJERCICIO DOS - A
+
+### 5 buenas prácticas esenciales para trabajar con Git en equipo:
+
+1. **Convención para nombres de ramas:**
+   - Utilizar prefijos descriptivos como `feature/`, `bugfix/`, `hotfix/`, `release/`
+   - Incluir el número de ticket/issue cuando sea aplicable: `feature/GIT-123-login-page`
+   - Usar guiones para separar palabras: `feature/add-payment-integration`
+
+2. **Mensajes de commit claros y estructurados:**
+   - Usar formato imperativo: "Add feature" en lugar de "Added feature"
+   - Limitar la primera línea a 50 caracteres como máximo
+   - Incluir un cuerpo detallado separado por una línea en blanco cuando sea necesario
+   - Referenciar issues/tickets: "Fix login error (closes #123)"
+
+3. **Integración y sincronización frecuente:**
+   - Hacer pull de la rama principal diariamente para evitar conflictos grandes
+   - Mantener los commits pequeños y enfocados en un solo cambio lógico
+   - Integrar cambios al menos una vez al día en proyectos de desarrollo activo
+
+4. **Revisión de código y Pull Requests:**
+   - No hacer merge de tus propios Pull Requests sin revisión
+   - Incluir descripciones detalladas en los PR con contexto y propósito
+   - Responder a comentarios de revisión con nuevos commits, no sobrescribiendo historial
+
+5. **Gestión de conflictos:**
+   - Resolver conflictos localmente antes de subir cambios
+   - Documentar decisiones importantes tomadas durante la resolución de conflictos
+   - Realizar pruebas después de resolver conflictos para verificar la integridad
+
