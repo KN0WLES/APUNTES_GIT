@@ -150,3 +150,98 @@ El comando git revert permite deshacer cambios realizados en commits anteriores 
 ```git revert abc123```
 
 ![Captura de pantalla de verificación](/RESOURCES/revert.png)
+
+### Diferencias con otros métodos para deshacer cambios
+![Captura de pantalla de verificación](/RESOURCES/table-revert.png)
+
+### Ventajas de git revert:
+- Es seguro para ramas compartidas
+- Mantiene un registro completo de acciones
+- No destruye el historial del proyecto
+- Permite deshacer cambios específicos manteniendo los posteriores
+
+## EJERCICIO TRES - B
+
+### ¿Qué es git reset?
+El comando git reset permite mover el puntero HEAD y la rama actual a un commit específico, con diferentes opciones para manejar el índice y el directorio de trabajo.
+
+#### Las tres variantes principales de git reset:
+1. **git reset --soft**
+```git reset --soft HEAD~1```
+
+- Efecto: Mueve solo HEAD al commit especificado
+- Conserva: Cambios en el staging area y directorio de trabajo
+- Uso común: Combinar varios commits en uno solo o reescribir mensajes de commit
+
+2. **git reset --mixed (opción por defecto)**
+```git reset HEAD~1```
+ o
+```git reset --mixed HEAD~1```
+
+- Efecto: Mueve HEAD y actualiza el índice (staging area)
+- Conserva: Cambios en el directorio de trabajo
+- Uso común: Deshacer un git add o reorganizar cambios
+
+3. **git reset --hard**
+```git reset --hard HEAD~1```
+
+- Efecto: Mueve HEAD, actualiza el índice y el directorio de trabajo
+- Conserva: Nada, descarta todos los cambios
+- Uso común: Descartar completamente commits erróneos (¡usar con precaución!)
+
+#### Tabla comparativa de opciones:
+![Captura de pantalla de verificación](/RESOURCES/table-reset.png)
+
+⚠️ ADVERTENCIA: git reset --hard es potencialmente destructivo. Los cambios descartados pueden ser difíciles de recuperar si no se han guardado en otro lugar.
+
+## EJERCICIO TRES - C
+
+### ¿Qué es git reflog?
+git reflog (reference log) es una herramienta que registra cuándo se actualizaron las referencias de Git (por ejemplo, ramas) en tu repositorio local. Actúa como una "red de seguridad" que permite recuperar commits que de otra manera podrían perderse.
+
+#### Explorando reflog
+```bash
+# Ver el historial de referencias
+git reflog
+
+# Ver el historial de referencias para una rama específica
+git reflog show main
+```
+
+#### Utilidad para recuperar cambios:
+
+1. **Recuperar después de un reset destructivo:**
+
+```bash
+# Supongamos que hicimos un reset --hard accidental
+git reset --hard HEAD~3  # Oops! Perdimos 3 commits
+
+
+# Usamos reflog para ver el historial de referencias
+git reflog
+# Identificamos el commit donde estábamos antes del reset
+# (ejemplo: HEAD@{5})
+
+# Recuperamos los cambios
+git reset --hard HEAD@{5}
+```
+
+2. **Recuperar una rama eliminada:**
+
+```bash
+# Si eliminamos una rama accidentalmente
+git branch -D feature-branch  # Eliminación accidental
+
+# Encontramos el último commit de esa rama en reflog
+git reflog
+# Localizamos el último commit de feature-branch (ej: abcd123)
+
+# Recreamos la rama
+git checkout -b feature-branch abcd123
+```
+
+#### Tiempo de retención:
+Por defecto, las entradas de reflog se conservan:
+
+- 30 días para entradas no expiradas
+- 90 días para entradas accesibles desde refs
