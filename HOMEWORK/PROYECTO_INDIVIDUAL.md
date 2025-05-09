@@ -121,3 +121,31 @@ He creado un archivo `.gitignore`. El archivo se encuentra en la raíz del repos
 #### Estructura del .gitignore implementado
 ![Captura de pantalla de verificación](/RESOURCES/ignore.png)
 
+## EJERCICIO DOS - C
+
+### ¿Qué es Versionado Semántico?
+
+El Versionado Semántico (SemVer) es un conjunto de reglas que especifican cómo asignar y aumentar los números de versión. Sigue el formato: **X.Y.Z** (MAYOR.MENOR.PARCHE)
+
+### Implementación de SemVer en un proyecto Git
+![Captura de pantalla de verificación](/RESOURCES/tag.png)
+
+#### 1. Estructura de versiones
+
+- **X (MAYOR)**: Incrementar cuando se realizan cambios incompatibles con versiones anteriores
+- **Y (MENOR)**: Incrementar cuando se añade funcionalidad nueva compatible con versiones anteriores
+- **Z (PARCHE)**: Incrementar cuando se corrigen errores compatible con versiones anteriores
+
+#### 2. Etiquetado de versiones en Git
+
+```# Para la versión inicial```
+```git tag -a v1.0.1 -m "Hasta ejercicio 2C"```
+
+## EJERCICIO TRES - A
+
+### ¿Qué es git revert?
+El comando git revert permite deshacer cambios realizados en commits anteriores sin alterar el historial de Git. A diferencia de otros métodos para deshacer cambios, git revert crea un nuevo commit que deshace los cambios del commit especificado.
+#### Implementación de git revert
+#``` Supongamos que queremos revertir el commit con hash abc123```
+```git revert abc123```
+
