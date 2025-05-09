@@ -284,7 +284,7 @@ alias.cm commit -m
 alias.branches branch -a -v
 ```
 
-## EJERCICIO CUATRO - A
+## EJERCICIO CUATRO - B
 
 ### ¿Qué es git stash?
 Git stash permite guardar temporalmente cambios que no están listos para commit, limpiando el área de trabajo sin perder modificaciones. Es especialmente útil cuando necesitas cambiar rápidamente de contexto o rama.
@@ -328,3 +328,85 @@ git stash drop stash@{2}
 # Eliminar todos los stashes
 git stash clear
 ```
+## EJERCICIO CUATRO - C
+
+### ¿Qué son los Git Hooks?
+Los Git Hooks son scripts que se ejecutan automáticamente cuando ocurren ciertos eventos en un repositorio Git. Pueden utilizarse para automatizar o personalizar el flujo de trabajo de Git.
+
+#### Tipos de hooks principales:
+- Client-side hooks: Ejecutados en eventos locales como commit o merge
+- Server-side hooks: Ejecutados en eventos del servidor como recibir un push
+
+#### Implementación de un hook pre-commit
+He creado un hook pre-commit que verifica el código JavaScript antes de permitir un commit:
+
+Creación del archivo pre-commit en .git/hooks/:
+
+```bash
+#!/bin/bash
+
+# Hook de pre-commit que verifica errores en archivos JavaScript
+
+echo "Ejecutando verificación de código JavaScript..."
+
+# Obtener todos los archivos JavaScript modificados
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.js$')
+
+if [ -n "$FILES" ]; then
+    echo "Verificando archivos JavaScript: $FILES"
+    
+    # Verificación simple de errores de sintaxis
+    for FILE in $FILES; do
+        if [ -f "$FILE" ]; then
+            # Usar node para verificar sintaxis
+            node --check "$FILE"
+            if [ $? -ne 0 ]; then
+                echo "Error: El archivo $FILE contiene errores de sintaxis."
+                echo "Commit abortado. Corrige los errores antes de hacer commit."
+                exit 1
+            fi
+        fi
+    done
+    
+    echo "✅ Verificación de código JavaScript completada sin errores."
+else
+    echo "No se encontraron archivos JavaScript modificados."
+fi
+
+exit 0
+```
+#### Dar permisos de ejecución al script:
+
+```chmod +x .git/hooks/pre-commit```
+
+#### Otros hooks útiles:
+```prepare-commit-msg```
+Modifica el mensaje de commit por defecto antes de que el editor sea ejecutado.
+```bash
+#!/bin/bash
+# Añade el nombre de la rama al mensaje de commit
+BRANCH_NAME=$(git branch --show-current)
+sed -i "1s/^/[$BRANCH_NAME] /" $1
+```
+```post-commit```
+#### Ejecuta acciones después de que se realiza un commit.
+```bash
+#!/bin/bash
+# Notificar después de un commit exitoso
+echo "✅ Commit realizado exitosamente!"
+git log -1 --stat
+pre-push
+Verifica condiciones antes de permitir un push.
+bash#!/bin/bash
+# Evitar hacer push directamente a main
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" = "main" ]; then
+  echo "❌ Error: No se permite hacer push directamente a main. Usa pull requests."
+  exit 1
+fi
+exit 0
+```
+#### Compartir hooks con el equipo:
+Los hooks se almacenan en ```.git/hooks/``` y no se incluyen en el repositorio. Para compartirlos:
+
+⚠️ Los hooks ofrecen un gran poder para automatizar tareas y garantizar la calidad del código en un proyecto Git.
