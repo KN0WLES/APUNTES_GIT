@@ -149,3 +149,4 @@ El comando git revert permite deshacer cambios realizados en commits anteriores 
 #``` Supongamos que queremos revertir el commit con hash abc123```
 ```git revert abc123```
 
+![Captura de pantalla de verificación](/RESOURCES/revert.png)
