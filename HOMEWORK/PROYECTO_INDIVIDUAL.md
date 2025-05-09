@@ -34,3 +34,30 @@ En un sistema distribuido, cada desarrollador tiene una copia completa del repos
 #### Resultado obtenido:
 ![Captura de pantalla de verificación](/RESOURCES/version.png)
 
+## EJERCICIO UNO - C
+
+### Creación de Repositorio ProyectoInicial
+
+Aunque ya estamos trabajando dentro de un repositorio Git, este ejercicio documenta cómo se crearía un nuevo repositorio desde cero:
+
+#### Paso 1: Crear el directorio para el proyecto simulado
+1. **Crea el directorio para el proyecto "ProyectoInicial"**
+```mkdir ProyectoInicial```
+```cd ProyectoInicial```
+
+2. **En un caso real, inicializaría el repositorio Git:**
+```git init```
+
+Nota: Este paso se omite en la simulación ya que estamos dentro de un repositorio existente.
+3. **Creación del archivo de presentación:**
+```echo "Nombre: Tu Nombre" > presentacion.txt```
+```echo "Descripción: Una breve descripción sobre ti o tus intereses en programación" >> presentacion.txt```
+
+4. **En un caso real, agregaria el archivo al stating area**
+```git add .```
+
+5. **Realizar el commit inicial**
+```git commit -m "Mensaje Descriptivo"```
+
+#### Resultado obtenido:
+![Captura de pantalla de verificación](/RESOURCES/creation.png)
