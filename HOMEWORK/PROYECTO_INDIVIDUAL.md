@@ -1,6 +1,6 @@
 # PROYECTO INDIVIDUAL - FIGUEREDO MANCILLA JOSE ARMANDO
 
-## EJERCICIO UNO
+## EJERCICIO UNO - A
 
 ### Diferencia entre sistemas de control de versiones centralizados y distribuidos
 
@@ -23,3 +23,14 @@ En un sistema distribuido, cada desarrollador tiene una copia completa del repos
 - **Bazaar**: Desarrollado por Canonical, utilizado en proyectos como Ubuntu.
 
 **Característica clave**: La distribución completa del repositorio elimina el punto único de fallo y permite un trabajo más flexible y descentralizado.
+
+## EJERCICIO UNO - B
+
+### Verificación de instalación de Git
+
+#### Comando utilizado:
+```git --version```
+
+#### Resultado obtenido:
+![Captura de pantalla de verificación](/RESOURCES/version.png)
+
