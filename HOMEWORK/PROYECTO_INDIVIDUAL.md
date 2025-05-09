@@ -112,4 +112,12 @@ Un archivo `.gitignore` permite especificar archivos y directorios que Git debe 
 - `**` - Coincide con directorios anidados (ej: `logs/**/*.log`)
 - `/ejemplo` - Ignora "ejemplo" solo en el directorio raíz
 - `ejemplo/` - Ignora todos los directorios llamados "ejemplo"
-- `!ejemplo.txt` - Negación: incluye este archivo aunque coincida con otro patrón
+- `!ejemplo.txt` - Negación: incluye este archivo aunque coincida con otro    patrón
+
+### Creación de archivo .gitignore
+
+He creado un archivo `.gitignore`. El archivo se encuentra en la raíz del repositorio y contiene los siguientes patrones:
+
+#### Estructura del .gitignore implementado
+![Captura de pantalla de verificación](/RESOURCES/ignore.png)
+
