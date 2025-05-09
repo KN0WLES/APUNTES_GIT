@@ -254,3 +254,77 @@ Los aliases son atajos personalizados para comandos Git que usamos frecuentement
 He implementado un alias personalizado llamado lg (log graphic) que muestra el historial de commits de manera gráfica, condensada y fácil de leer:
 ```git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"```
 
+![Captura de pantalla de verificación](/RESOURCES/aliases.png)
+#### Otros aliases útiles implementados:
+```bash
+# Alias para verificar el estado de forma concisa
+git config --global alias.st "status -sb"
+
+# Alias para ver el último commit
+git config --global alias.last "log -1 HEAD --stat"
+
+# Alias para listar todos los aliases configurados
+git config --global alias.aliases "config --get-regexp ^alias\."
+
+# Alias para commits rápidos
+git config --global alias.cm "commit -m"
+
+# Alias para ver ramas con información adicional
+git config --global alias.branches "branch -a -v"
+```
+
+#### Verificación de aliases configurados:
+```bash
+$ git aliases
+alias.lg log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+alias.st status -sb
+alias.last log -1 HEAD --stat
+alias.aliases config --get-regexp ^alias\.
+alias.cm commit -m
+alias.branches branch -a -v
+```
+
+## EJERCICIO CUATRO - A
+
+### ¿Qué es git stash?
+Git stash permite guardar temporalmente cambios que no están listos para commit, limpiando el área de trabajo sin perder modificaciones. Es especialmente útil cuando necesitas cambiar rápidamente de contexto o rama.
+##### Uso básico de stash:
+```bash
+# Guardar cambios actuales en el stash
+git stash
+
+# Listar stashes guardados
+git stash list
+
+# Aplicar el último stash y mantenerlo en la lista
+git stash apply
+
+# Aplicar el último stash y eliminarlo de la lista
+git stash pop
+
+# Aplicar un stash específico
+git stash apply stash@{2}
+```
+#### Opciones avanzadas de stash:
+- Guardar con un mensaje descriptivo
+```git stash save "Implementación parcial de login"```
+- Guardar incluyendo archivos no rastreados
+```bash
+git stash -u
+# o
+git stash --include-untracked
+```
+- Guardar solo ciertos archivos
+```git stash push -m "Cambios en funcionalidad X" path/to/file1 path/to/file2```
+- Ver contenido de un stash
+```git stash show -p stash@{0}```
+- Crear una rama desde un stash
+```git stash branch nueva-rama stash@{1}```
+- Eliminar stashes
+```bash
+# Eliminar un stash específico
+git stash drop stash@{2}
+
+# Eliminar todos los stashes
+git stash clear
+```
