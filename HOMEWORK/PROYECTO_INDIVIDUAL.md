@@ -92,3 +92,24 @@ Nota: Este paso se omite en la simulación ya que estamos dentro de un repositor
    - Documentar decisiones importantes tomadas durante la resolución de conflictos
    - Realizar pruebas después de resolver conflictos para verificar la integridad
 
+## EJERCICIO DOS - B
+
+### ¿Qué es un archivo .gitignore?
+
+Un archivo `.gitignore` permite especificar archivos y directorios que Git debe ignorar y no rastrear. Esto es útil para:
+
+- Excluir archivos generados automáticamente
+- Evitar archivos de configuraciones personales
+- Excluir directorios de dependencias que se pueden regenerar
+- Evitar añadir archivos compilados o temporales
+- Prevenir la inclusión accidental de información sensible
+
+#### Patrones comunes en .gitignore
+
+- `*` - Comodín que coincide con cualquier número de caracteres
+- `?` - Comodín que coincide con un solo carácter
+- `[abc]` - Coincide con cualquier carácter dentro de los corchetes
+- `**` - Coincide con directorios anidados (ej: `logs/**/*.log`)
+- `/ejemplo` - Ignora "ejemplo" solo en el directorio raíz
+- `ejemplo/` - Ignora todos los directorios llamados "ejemplo"
+- `!ejemplo.txt` - Negación: incluye este archivo aunque coincida con otro patrón
