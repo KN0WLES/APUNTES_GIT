@@ -245,3 +245,12 @@ Por defecto, las entradas de reflog se conservan:
 
 - 30 días para entradas no expiradas
 - 90 días para entradas accesibles desde refs
+
+## EJERCICIO CUATRO - A
+
+### ¿Qué son los aliases en Git?
+Los aliases son atajos personalizados para comandos Git que usamos frecuentemente. Permiten definir comandos más cortos o combinar varios comandos en uno solo, aumentando significativamente la productividad.
+#### Implementación de un alias para historial de commits
+He implementado un alias personalizado llamado lg (log graphic) que muestra el historial de commits de manera gráfica, condensada y fácil de leer:
+```git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"```
+
