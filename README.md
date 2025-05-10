@@ -147,4 +147,4 @@ git push origin main
 
 ---
 
-Este README fusiona la información de varios repositorios educativos sobre Git y GitHub para proporcionar una referencia rápida de los comandos más utilizados. Si quieres aprender más en profundidad, te recomendamos seguir alguno de los cursos o tutoriales mencionados en los enlaces.
+Este README fusiona la información de varios repositorios educativos sobre Git y GitHub para proporcionar una referencia rápida de los comandos más utilizados.
