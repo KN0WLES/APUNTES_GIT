@@ -106,9 +106,9 @@ Una de las principales ventajas de Git es su enfoque distribuido, lo que signifi
 
 | Comando | Descripción |
 | ------- | ----------- |
-| `git cherry-pick <commit>` | Aplica los cambios de un commit espec铆fico en la rama actual |
+| `git cherry-pick <commit>` | Aplica los cambios de un commit específico en la rama actual |
 | `git rebase <rama>` | Reaplica commits de la rama actual sobre otra rama |
-| `git reflog` | Muestra un registro de todos los cambios en HEAD (煤til para recuperar commits perdidos) |
+| `git reflog` | Muestra un registro de todos los cambios en HEAD (útil para recuperar commits perdidos) |
 | `git blame <archivo>` | Muestra quién modificó cada línea de un archivo y cuándo |
 | `git bisect` | Herramienta para encontrar el commit que introdujo un bug |
 
