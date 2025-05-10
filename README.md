@@ -117,7 +117,7 @@ Una de las principales ventajas de Git es su enfoque distribuido, lo que signifi
 ### Flujo básico para contribuir a proyectos
 
 1. **Fork**: Crear una copia del repositorio en tu cuenta de GitHub
-2. **Clone**: Clonar tu fork a tu m谩quina local
+2. **Clone**: Clonar tu fork a tu máquina local
 3. **Branch**: Crear una rama para tus cambios
 4. **Commit**: Hacer cambios y confirmarlos
 5. **Push**: Subir tus cambios a tu fork
